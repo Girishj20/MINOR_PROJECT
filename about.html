@@ -1,0 +1,518 @@
+{% extends "base.html" %}
+
+{% block title %}
+About | AI Livestock Health
+{% endblock %}
+
+{% block content %}
+
+<!-- ========================================
+     ABOUT HEADER
+======================================== -->
+
+<section class="section-padding">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span
+                class="badge"
+                style="background-color: #167D8D;"
+            >
+                About The Project
+            </span>
+
+            <h1 class="section-title mt-3">
+                AI-Powered Livestock Health Monitoring
+            </h1>
+
+            <p class="section-subtitle mx-auto"
+               style="max-width: 750px;">
+
+                A machine-learning based decision support
+                system designed to help monitor livestock
+                health and identify possible diseases.
+
+            </p>
+
+        </div>
+
+
+        <!-- ========================================
+             PROJECT DESCRIPTION
+        ======================================== -->
+
+        <div class="row align-items-center g-5 mb-5">
+
+            <div class="col-lg-6">
+
+                <div class="about-icon text-center">
+                    🐄 🐃 🐐 🐑
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-6">
+
+                <h3 class="fw-bold mb-3">
+                    What is this system?
+                </h3>
+
+                <p class="text-muted">
+
+                    The AI-Powered Livestock Health Monitoring
+                    & Decision Support System is a final-year
+                    academic project that uses machine learning
+                    to analyse animal health parameters and
+                    predict possible diseases.
+
+                </p>
+
+                <p class="text-muted">
+
+                    The system supports four types of livestock:
+                    <strong>Cow, Buffalo, Goat and Sheep.</strong>
+
+                    Each animal has a separate machine-learning
+                    model trained according to its relevant
+                    health data.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- ========================================
+             HOW IT WORKS
+        ======================================== -->
+
+        <div class="text-center mb-4">
+
+            <h3 class="section-title">
+                How It Works
+            </h3>
+
+            <p class="section-subtitle">
+                From health parameters to decision support.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4 mb-5">
+
+
+            <div class="col-md-3">
+
+                <div class="tech-card h-100">
+
+                    <div class="fs-1 mb-3">
+                        🐄
+                    </div>
+
+                    <h5>
+                        1. Select Animal
+                    </h5>
+
+                    <p class="text-muted mb-0">
+                        Choose Cow, Buffalo, Goat or Sheep.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-3">
+
+                <div class="tech-card h-100">
+
+                    <div class="fs-1 mb-3">
+                        📋
+                    </div>
+
+                    <h5>
+                        2. Enter Data
+                    </h5>
+
+                    <p class="text-muted mb-0">
+                        Provide the available health
+                        parameters of the animal.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-3">
+
+                <div class="tech-card h-100">
+
+                    <div class="fs-1 mb-3">
+                        🤖
+                    </div>
+
+                    <h5>
+                        3. AI Prediction
+                    </h5>
+
+                    <p class="text-muted mb-0">
+                        The appropriate ML model analyses
+                        the submitted parameters.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-3">
+
+                <div class="tech-card h-100">
+
+                    <div class="fs-1 mb-3">
+                        📊
+                    </div>
+
+                    <h5>
+                        4. Decision Support
+                    </h5>
+
+                    <p class="text-muted mb-0">
+                        View disease, confidence,
+                        severity and recommendations.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ========================================
+             FEATURES
+        ======================================== -->
+
+        <div class="row g-4">
+
+
+            <!-- KEY FEATURES -->
+
+            <div class="col-lg-6">
+
+                <div class="result-card h-100">
+
+                    <h4 class="fw-bold mb-3">
+                        Key Features
+                    </h4>
+
+                    <ul class="text-muted">
+
+                        <li class="mb-2">
+                            Separate ML model for each animal.
+                        </li>
+
+                        <li class="mb-2">
+                            Disease prediction from health parameters.
+                        </li>
+
+                        <li class="mb-2">
+                            Prediction confidence percentage.
+                        </li>
+
+                        <li class="mb-2">
+                            Disease severity assessment.
+                        </li>
+
+                        <li class="mb-2">
+                            Symptoms and recommendations.
+                        </li>
+
+                        <li class="mb-2">
+                            Disease prevention guidance.
+                        </li>
+
+                        <li class="mb-2">
+                            Overall health score.
+                        </li>
+
+                        <li>
+                            Prediction history and PDF reports.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+            <!-- ========================================
+                 FAQ
+            ======================================== -->
+
+            <div class="col-lg-6">
+
+                <div class="result-card h-100">
+
+                    <h4 class="fw-bold mb-3">
+                        Frequently Asked Questions
+                    </h4>
+
+
+                    <div class="accordion" id="faqAccordion">
+
+
+                        <!-- FAQ 1 -->
+
+                        <div class="accordion-item">
+
+                            <h2 class="accordion-header">
+
+                                <button
+                                    class="accordion-button"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#faq1"
+                                >
+
+                                    What is this system?
+
+                                </button>
+
+                            </h2>
+
+                            <div
+                                id="faq1"
+                                class="accordion-collapse collapse show"
+                                data-bs-parent="#faqAccordion"
+                            >
+
+                                <div class="accordion-body">
+
+                                    This system uses machine learning
+                                    to analyse livestock health
+                                    parameters and predict possible
+                                    diseases.
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- FAQ 2 -->
+
+                        <div class="accordion-item">
+
+                            <h2 class="accordion-header">
+
+                                <button
+                                    class="accordion-button collapsed"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#faq2"
+                                >
+
+                                    Which animals are supported?
+
+                                </button>
+
+                            </h2>
+
+                            <div
+                                id="faq2"
+                                class="accordion-collapse collapse"
+                                data-bs-parent="#faqAccordion"
+                            >
+
+                                <div class="accordion-body">
+
+                                    The system supports Cow, Buffalo,
+                                    Goat and Sheep. Each animal uses
+                                    a separate machine-learning model.
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- FAQ 3 -->
+
+                        <div class="accordion-item">
+
+                            <h2 class="accordion-header">
+
+                                <button
+                                    class="accordion-button collapsed"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#faq3"
+                                >
+
+                                    What does the prediction show?
+
+                                </button>
+
+                            </h2>
+
+                            <div
+                                id="faq3"
+                                class="accordion-collapse collapse"
+                                data-bs-parent="#faqAccordion"
+                            >
+
+                                <div class="accordion-body">
+
+                                    The prediction result includes
+                                    disease, confidence percentage,
+                                    severity, symptoms, recommendations,
+                                    prevention guidance, next check-up
+                                    and overall health score.
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- FAQ 4 -->
+
+                        <div class="accordion-item">
+
+                            <h2 class="accordion-header">
+
+                                <button
+                                    class="accordion-button collapsed"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#faq4"
+                                >
+
+                                    Does the system provide prevention?
+
+                                </button>
+
+                            </h2>
+
+                            <div
+                                id="faq4"
+                                class="accordion-collapse collapse"
+                                data-bs-parent="#faqAccordion"
+                            >
+
+                                <div class="accordion-body">
+
+                                    Yes. The system provides disease
+                                    prevention guidance through its
+                                    Disease Knowledge Base.
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- FAQ 5 -->
+
+                        <div class="accordion-item">
+
+                            <h2 class="accordion-header">
+
+                                <button
+                                    class="accordion-button collapsed"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#faq5"
+                                >
+
+                                    Can I download a PDF report?
+
+                                </button>
+
+                            </h2>
+
+                            <div
+                                id="faq5"
+                                class="accordion-collapse collapse"
+                                data-bs-parent="#faqAccordion"
+                            >
+
+                                <div class="accordion-body">
+
+                                    Yes. The system will generate a PDF
+                                    report containing the animal details,
+                                    prediction result and health
+                                    assessment.
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- FAQ 6 -->
+
+                        <div class="accordion-item">
+
+                            <h2 class="accordion-header">
+
+                                <button
+                                    class="accordion-button collapsed"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#faq6"
+                                >
+
+                                    Is this system a replacement for a veterinarian?
+
+                                </button>
+
+                            </h2>
+
+                            <div
+                                id="faq6"
+                                class="accordion-collapse collapse"
+                                data-bs-parent="#faqAccordion"
+                            >
+
+                                <div class="accordion-body">
+
+                                    No. This system is a decision-support
+                                    and early-warning tool. Veterinary
+                                    consultation should be taken for
+                                    diagnosis and treatment decisions.
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+{% endblock %}

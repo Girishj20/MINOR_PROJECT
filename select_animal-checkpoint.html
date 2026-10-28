@@ -1,0 +1,207 @@
+{% extends "base.html" %}
+
+{% block title %}
+Select Animal - AI Livestock Health
+{% endblock %}
+
+{% block content %}
+
+<!-- =========================================
+     PAGE HEADER
+========================================= -->
+
+<section class="section-padding">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="badge bg-success mb-3">
+                Health Assessment
+            </span>
+
+            <h1 class="section-title">
+                Select Your Animal
+            </h1>
+
+            <p class="section-subtitle">
+                Choose the animal you want to assess
+                for possible health conditions.
+            </p>
+
+        </div>
+
+
+        <!-- =========================================
+             ANIMAL CARDS
+        ========================================== -->
+
+        <div class="row g-4 justify-content-center">
+
+
+            <!-- =====================================
+                 COW
+            ====================================== -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="animal-card text-center">
+
+                    <div class="animal-icon">
+                        🐄
+                    </div>
+
+                    <h3 class="fw-bold">
+                        Cow
+                    </h3>
+
+                    <p class="text-muted">
+                        Assess cow health using
+                        physical, behavioral and
+                        environmental parameters.
+                    </p>
+
+                    <a
+                        href="{{ url_for('cow_prediction') }}"
+                        class="btn btn-success w-100"
+                    >
+                        Select Cow
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- =====================================
+                 BUFFALO
+            ====================================== -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="animal-card text-center">
+
+                    <div class="animal-icon">
+                        🐃
+                    </div>
+
+                    <h3 class="fw-bold">
+                        Buffalo
+                    </h3>
+
+                    <p class="text-muted">
+                        Assess buffalo health and
+                        identify possible diseases.
+                    </p>
+
+                    <a
+                        href="{{ url_for('buffalo_prediction') }}"
+                        class="btn btn-success w-100"
+                    >
+                        Select Buffalo
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- =====================================
+                 GOAT
+            ====================================== -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="animal-card text-center">
+
+                    <div class="animal-icon">
+                        🐐
+                    </div>
+
+                    <h3 class="fw-bold">
+                        Goat
+                    </h3>
+
+                    <p class="text-muted">
+                        Analyze goat health parameters
+                        for disease prediction.
+                    </p>
+
+                    <a
+                        href="{{ url_for('goat_prediction') }}"
+                        class="btn btn-success w-100"
+                    >
+                        Select Goat
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- =====================================
+                 SHEEP
+            ====================================== -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="animal-card text-center">
+
+                    <div class="animal-icon">
+                        🐑
+                    </div>
+
+                    <h3 class="fw-bold">
+                        Sheep
+                    </h3>
+
+                    <p class="text-muted">
+                        Evaluate sheep health and
+                        identify possible conditions.
+                    </p>
+
+                    <a
+                        href="{{ url_for('sheep_prediction') }}"
+                        class="btn btn-success w-100"
+                    >
+                        Select Sheep
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================================
+             INFORMATION BOX
+        ========================================== -->
+
+        <div class="row justify-content-center mt-5">
+
+            <div class="col-lg-9">
+
+                <div class="alert alert-success text-center">
+
+                    <strong>
+                        How does it work?
+                    </strong>
+
+                    <br>
+
+                    Select an animal → Enter its health
+                    parameters → AI model analyzes the data
+                    → Get a detailed health assessment.
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

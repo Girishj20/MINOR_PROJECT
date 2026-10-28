@@ -1,0 +1,557 @@
+{% extends "base.html" %}
+
+{% block title %}Prediction Result - AI Livestock Health{% endblock %}
+
+{% block content %}
+
+<section class="section-padding">
+
+    <div class="container">
+
+        <!-- PAGE HEADER -->
+        <div class="text-center mb-5">
+
+            <span class="badge bg-success mb-3">
+                AI Livestock Health
+            </span>
+
+            <h1 class="section-title">
+                Prediction Result
+            </h1>
+
+            <p class="section-subtitle">
+                Health assessment based on the supplied animal parameters.
+            </p>
+
+        </div>
+
+
+        <!-- MAIN RESULT -->
+        <div class="row g-4 justify-content-center">
+
+            <!-- HEALTH STATUS -->
+            <div class="col-lg-4">
+
+                <div class="result-card h-100 text-center">
+
+                    <div style="font-size: 55px;" class="mb-3">
+                        🐄
+                    </div>
+
+                    <small class="text-muted">
+                        Health Status
+                    </small>
+
+                    <h2 id="healthStatus"
+                        class="fw-bold text-success mt-2">
+                        --
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <!-- PREDICTED DISEASE -->
+            <div class="col-lg-4">
+
+                <div class="result-card h-100 text-center">
+
+                    <div style="font-size: 55px;" class="mb-3">
+                        🩺
+                    </div>
+
+                    <small class="text-muted">
+                        Predicted Disease
+                    </small>
+
+                    <h3 id="predictedDisease"
+                        class="fw-bold text-success mt-2">
+                        --
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROBABILITY -->
+            <div class="col-lg-4">
+
+                <div class="result-card h-100">
+
+                    <div class="text-center mb-3">
+
+                        <div style="font-size: 55px;">
+                            📊
+                        </div>
+
+                        <small class="text-muted">
+                            Prediction Probability
+                        </small>
+
+                        <h3 id="probabilityText"
+                            class="fw-bold text-success mt-2">
+                            --
+                        </h3>
+
+                    </div>
+
+                    <div class="progress"
+                         style="height: 12px;">
+
+                        <div id="probabilityBar"
+                             class="progress-bar bg-success"
+                             role="progressbar"
+                             style="width: 0%;"
+                             aria-valuenow="0"
+                             aria-valuemin="0"
+                             aria-valuemax="100">
+                        </div>
+
+                    </div>
+
+                    <small class="text-muted d-block mt-3 text-center">
+                        This is an AI prediction probability and
+                        not a confirmed veterinary diagnosis.
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ISOLATION RECOMMENDATION -->
+        <div class="row justify-content-center mt-4">
+
+            <div class="col-lg-8">
+
+                <div id="isolationCard"
+                     class="result-card text-center">
+
+                    <div style="font-size: 50px;" class="mb-2">
+                        🚨
+                    </div>
+
+                    <small class="text-muted">
+                        Isolation Recommendation
+                    </small>
+
+                    <h2 id="isolationRecommendation"
+                        class="fw-bold mt-2">
+                        --
+                    </h2>
+
+                    <p id="isolationReason"
+                       class="text-muted mb-0">
+                        --
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PREDICTION TIME -->
+        <div class="text-center mt-4">
+
+            <small class="text-muted">
+                Prediction Time
+            </small>
+
+            <div id="predictionTime"
+                 class="fw-bold mt-1">
+                --
+            </div>
+
+        </div>
+
+
+        <!-- INPUT PARAMETERS -->
+        <div class="result-card mt-5">
+
+            <h4 class="fw-bold mb-4 text-center">
+                Animal Parameters
+            </h4>
+
+            <div class="row g-3"
+                 id="inputParameters">
+
+                <!-- Filled using JavaScript -->
+
+            </div>
+
+        </div>
+
+
+        <!-- DISCLAIMER -->
+        <div class="result-card mt-4">
+
+            <h5 class="fw-bold">
+                ⚠️ Important
+            </h5>
+
+            <p class="text-muted small mb-0">
+                This system provides an AI-based prediction from the
+                supplied animal parameters. The result is not a confirmed
+                veterinary diagnosis. Isolation recommendations are
+                precautionary and should be confirmed by a qualified
+                veterinarian.
+            </p>
+
+        </div>
+
+
+        <!-- ACTION BUTTONS -->
+        <div class="text-center mt-5">
+
+            <a href="{{ url_for('select_animal') }}"
+               class="btn btn-success me-2">
+                🐄 Check Another Animal
+            </a>
+
+            <a href="{{ url_for('generate_report') }}"
+               class="btn btn-outline-dark">
+                📄 Generate PDF Report
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     LOAD PREDICTION RESULT
+========================================= -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const storedPrediction =
+        sessionStorage.getItem("cowPrediction");
+
+
+    if (!storedPrediction) {
+
+        document.getElementById("healthStatus")
+            .textContent = "No Prediction Available";
+
+        document.getElementById("predictedDisease")
+            .textContent = "--";
+
+        document.getElementById("probabilityText")
+            .textContent = "--";
+
+        document.getElementById("isolationRecommendation")
+            .textContent = "--";
+
+        document.getElementById("isolationReason")
+            .textContent = "No prediction data available.";
+
+        return;
+    }
+
+
+    try {
+
+        const predictionData =
+            JSON.parse(storedPrediction);
+
+
+        /* =====================================
+           HEALTH STATUS
+        ===================================== */
+
+        const healthStatus =
+            predictionData.Health_Status || "Unknown";
+
+        const healthElement =
+            document.getElementById("healthStatus");
+
+        healthElement.textContent =
+            healthStatus;
+
+
+        if (healthStatus === "Healthy") {
+
+            healthElement.classList.remove(
+                "text-danger",
+                "text-warning"
+            );
+
+            healthElement.classList.add(
+                "text-success"
+            );
+
+        }
+        else {
+
+            healthElement.classList.remove(
+                "text-success"
+            );
+
+            healthElement.classList.add(
+                "text-warning"
+            );
+
+        }
+
+
+        /* =====================================
+           PREDICTED DISEASE
+        ===================================== */
+
+        let predictedDisease =
+            predictionData.Predicted_Disease || "None";
+
+
+        if (
+            healthStatus === "Healthy" ||
+            !predictedDisease ||
+            predictedDisease === "None"
+        ) {
+
+            predictedDisease =
+                "No Disease Detected";
+
+        }
+
+
+        predictedDisease =
+            predictedDisease.replaceAll("_", " ");
+
+
+        document.getElementById("predictedDisease")
+            .textContent =
+            predictedDisease;
+
+
+        /* =====================================
+           PROBABILITY
+        ===================================== */
+
+        const probability =
+            Number(
+                predictionData.Model_Probability
+            );
+
+
+        if (!isNaN(probability)) {
+
+            const safeProbability =
+                Math.max(
+                    0,
+                    Math.min(100, probability)
+                );
+
+
+            document.getElementById("probabilityText")
+                .textContent =
+                safeProbability.toFixed(2) + "%";
+
+
+            const probabilityBar =
+                document.getElementById(
+                    "probabilityBar"
+                );
+
+
+            probabilityBar.style.width =
+                safeProbability + "%";
+
+
+            probabilityBar.setAttribute(
+                "aria-valuenow",
+                safeProbability
+            );
+
+        }
+        else {
+
+            document.getElementById("probabilityText")
+                .textContent = "N/A";
+
+        }
+
+
+        /* =====================================
+           ISOLATION RECOMMENDATION
+        ===================================== */
+
+        const isolationRecommendation =
+            predictionData.Isolation_Recommendation ||
+            "NO";
+
+
+        const isolationReason =
+            predictionData.Isolation_Reason ||
+            "No isolation information available.";
+
+
+        const isolationElement =
+            document.getElementById(
+                "isolationRecommendation"
+            );
+
+
+        const isolationCard =
+            document.getElementById(
+                "isolationCard"
+            );
+
+
+        isolationElement.textContent =
+            isolationRecommendation;
+
+
+        document.getElementById(
+            "isolationReason"
+        ).textContent =
+            isolationReason;
+
+
+        if (
+            isolationRecommendation
+                .toUpperCase() === "YES"
+        ) {
+
+            isolationElement.classList.add(
+                "text-danger"
+            );
+
+            isolationElement.classList.remove(
+                "text-success"
+            );
+
+            isolationCard.style.border =
+                "2px solid rgba(220, 53, 69, 0.35)";
+
+        }
+        else {
+
+            isolationElement.classList.add(
+                "text-success"
+            );
+
+            isolationElement.classList.remove(
+                "text-danger"
+            );
+
+            isolationCard.style.border =
+                "2px solid rgba(25, 135, 84, 0.25)";
+
+        }
+
+
+        /* =====================================
+           PREDICTION TIME
+        ===================================== */
+
+        document.getElementById(
+            "predictionTime"
+        ).textContent =
+            predictionData.Timestamp || "--";
+
+
+        /* =====================================
+           INPUT PARAMETERS
+        ===================================== */
+
+        const inputContainer =
+            document.getElementById(
+                "inputParameters"
+            );
+
+
+        const inputs =
+            predictionData.Input_Parameters || {};
+
+
+        inputContainer.innerHTML = "";
+
+
+        Object.entries(inputs).forEach(
+            ([key, value]) => {
+
+                const col =
+                    document.createElement("div");
+
+                col.className =
+                    "col-md-4 col-lg-3";
+
+
+                const card =
+                    document.createElement("div");
+
+                card.className =
+                    "border rounded p-3 h-100";
+
+
+                const label =
+                    document.createElement("small");
+
+                label.className =
+                    "text-muted d-block";
+
+
+                label.textContent =
+                    key.replaceAll("_", " ");
+
+
+                const valueElement =
+                    document.createElement("strong");
+
+                valueElement.className =
+                    "d-block mt-1";
+
+
+                valueElement.textContent =
+                    value;
+
+
+                card.appendChild(label);
+
+                card.appendChild(valueElement);
+
+                col.appendChild(card);
+
+                inputContainer.appendChild(col);
+
+            }
+        );
+
+
+    }
+    catch (error) {
+
+        console.error(
+            "Error reading prediction:",
+            error
+        );
+
+
+        document.getElementById(
+            "healthStatus"
+        ).textContent =
+            "Prediction Error";
+
+
+        document.getElementById(
+            "predictedDisease"
+        ).textContent =
+            "--";
+
+    }
+
+});
+
+</script>
+
+{% endblock %}

@@ -1,0 +1,2230 @@
+/* ========================================
+   AI LIVESTOCK HEALTH
+   PROFESSIONAL UI THEME
+======================================== */
+
+
+/* ========================================
+   COLOR SYSTEM
+======================================== */
+
+:root {
+    --navy: #172B3A;
+    --navy-light: #234052;
+
+    --teal: #167D8D;
+    --teal-dark: #116673;
+    --teal-soft: #E8F5F7;
+
+    --green: #2E8B70;
+    --green-soft: #EAF6F1;
+
+    --background: #F5F8FA;
+    --white: #FFFFFF;
+
+    --text: #1F2933;
+    --text-light: #667085;
+
+    --border: #E1E8ED;
+
+    --shadow: 0 8px 30px rgba(23, 43, 58, 0.07);
+}
+
+
+/* ========================================
+   GLOBAL
+======================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+}
+
+::selection {
+    background: var(--teal);
+    color: white;
+}
+
+
+/* ========================================
+   NAVBAR
+======================================== */
+
+.navbar {
+    min-height: 74px;
+    background: var(--navy) !important;
+    padding: 0;
+}
+
+.navbar-brand {
+    color: white !important;
+    font-size: 21px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+}
+
+.navbar-brand:hover {
+    color: #D8F1F4 !important;
+}
+
+.nav-link {
+    color: #D7E1E7 !important;
+    font-weight: 500;
+    margin: 0 7px;
+    padding: 24px 8px !important;
+    transition: 0.2s ease;
+}
+
+.nav-link:hover {
+    color: white !important;
+}
+
+.navbar .btn-success {
+    background: var(--teal);
+    border-color: var(--teal);
+}
+
+.navbar .btn-success:hover {
+    background: var(--teal-dark);
+    border-color: var(--teal-dark);
+}
+
+
+/* Mobile menu icon */
+
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+.navbar-toggler-icon {
+    filter: invert(1);
+}
+
+
+/* ========================================
+   HERO
+======================================== */
+
+.hero-section {
+    padding: 105px 0;
+    background:
+        radial-gradient(
+            circle at 85% 25%,
+            rgba(22, 125, 141, 0.10),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #F7FAFC 0%,
+            #EDF5F7 100%
+        );
+}
+
+.hero-title {
+    color: var(--navy);
+    font-size: 54px;
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: -1px;
+}
+
+.hero-text {
+    max-width: 650px;
+    color: var(--text-light);
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.text-success {
+    color: var(--teal) !important;
+}
+
+
+/* Hero button */
+
+.hero-section .btn-success {
+    background: var(--teal);
+    border-color: var(--teal);
+    padding: 12px 24px;
+}
+
+.hero-section .btn-success:hover {
+    background: var(--teal-dark);
+}
+
+
+/* Hero animal circle */
+
+.animal-hero-icon {
+    width: 330px;
+    height: 330px;
+    margin: auto;
+
+    background: white;
+
+    border: 1px solid var(--border);
+
+    border-radius: 50%;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    box-shadow: 0 20px 55px rgba(23, 43, 58, 0.10);
+}
+
+
+/* ========================================
+   BADGES
+======================================== */
+
+.badge.bg-success {
+    background-color: var(--teal) !important;
+}
+
+.badge {
+    border-radius: 6px;
+    font-weight: 600;
+    padding: 7px 11px;
+}
+
+
+/* ========================================
+   SECTIONS
+======================================== */
+
+.section-padding {
+    padding: 85px 0;
+}
+
+.section-title {
+    color: var(--navy);
+    font-size: 36px;
+    font-weight: 750;
+    margin-bottom: 10px;
+    letter-spacing: -0.4px;
+}
+
+.section-subtitle {
+    color: var(--text-light);
+    margin-bottom: 40px;
+}
+
+
+/* ========================================
+   ANIMAL CARDS
+======================================== */
+
+.animal-card {
+    height: 100%;
+    padding: 32px 24px;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+    border-radius: 16px;
+
+    box-shadow: var(--shadow);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.animal-card:hover {
+    transform: translateY(-6px);
+
+    border-color: rgba(22, 125, 141, 0.35);
+
+    box-shadow:
+        0 16px 40px rgba(23, 43, 58, 0.11);
+}
+
+.animal-icon {
+    font-size: 64px;
+    margin-bottom: 18px;
+}
+
+.animal-card h3,
+.animal-card h4,
+.animal-card h5 {
+    color: var(--navy);
+    font-weight: 700;
+}
+
+.animal-card p {
+    color: var(--text-light);
+}
+
+
+/* ========================================
+   AUTH PAGES
+======================================== */
+
+.auth-container {
+    min-height: calc(100vh - 74px);
+
+    padding: 70px 0;
+
+    display: flex;
+    align-items: center;
+}
+
+.auth-card {
+    background: white;
+
+    border: 1px solid var(--border);
+    border-radius: 18px;
+
+    padding: 42px;
+
+    box-shadow: var(--shadow);
+}
+
+.auth-card h2 {
+    color: var(--navy);
+}
+
+
+/* ========================================
+   FORMS
+======================================== */
+
+.form-container {
+    background: white;
+
+    border: 1px solid var(--border);
+    border-radius: 18px;
+
+    padding: 38px;
+
+    box-shadow: var(--shadow);
+}
+
+.form-label {
+    color: var(--navy);
+    font-weight: 600;
+    margin-bottom: 7px;
+}
+
+.form-control,
+.form-select {
+    min-height: 49px;
+
+    background-color: #FCFDFE;
+
+    border: 1px solid #D7E0E6;
+
+    border-radius: 9px;
+
+    color: var(--text);
+
+    transition: 0.2s ease;
+}
+
+.form-control::placeholder {
+    color: #98A2B3;
+}
+
+.form-control:focus,
+.form-select:focus {
+    background: white;
+
+    border-color: var(--teal);
+
+    box-shadow:
+        0 0 0 3px rgba(22, 125, 141, 0.10);
+}
+
+
+/* ========================================
+   BUTTONS
+======================================== */
+
+.btn {
+    border-radius: 8px;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.btn-success {
+    background: var(--teal);
+    border-color: var(--teal);
+}
+
+.btn-success:hover {
+    background: var(--teal-dark);
+    border-color: var(--teal-dark);
+
+    transform: translateY(-1px);
+}
+
+.btn-outline-success {
+    color: var(--teal);
+    border-color: var(--teal);
+}
+
+.btn-outline-success:hover {
+    background: var(--teal);
+    border-color: var(--teal);
+    color: white;
+}
+
+
+/* ========================================
+   RESULT PAGE
+======================================== */
+
+.result-card {
+    background: white;
+
+    border: 1px solid var(--border);
+    border-radius: 18px;
+
+    padding: 30px;
+
+    box-shadow: var(--shadow);
+}
+
+.health-score {
+    font-size: 58px;
+    font-weight: 800;
+    color: var(--teal) !important;
+}
+
+.confidence {
+    color: var(--teal) !important;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.progress {
+    background: #E7EEF1;
+    border-radius: 20px;
+}
+
+.progress-bar {
+    background: var(--teal) !important;
+}
+
+
+/* ========================================
+   TABLE
+======================================== */
+
+.table {
+    color: var(--text);
+}
+
+.table thead {
+    background: var(--navy);
+    color: white;
+}
+
+.table-success {
+    --bs-table-bg: var(--navy);
+    --bs-table-color: white;
+}
+
+.table thead th {
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.table tbody tr {
+    transition: 0.15s ease;
+}
+
+.table tbody tr:hover {
+    background: #F2F8F9;
+}
+
+
+/* ========================================
+   TECHNOLOGY CARDS
+======================================== */
+
+.tech-card {
+    padding: 18px;
+
+    background: white;
+
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    text-align: center;
+
+    color: var(--navy);
+    font-weight: 600;
+
+    transition: 0.2s ease;
+}
+
+.tech-card:hover {
+    border-color: var(--teal);
+    color: var(--teal);
+
+    transform: translateY(-3px);
+}
+
+
+/* ========================================
+   ABOUT
+======================================== */
+
+.about-icon {
+    background: white;
+
+    border: 1px solid var(--border);
+    border-radius: 22px;
+
+    padding: 60px 20px;
+
+    font-size: 72px;
+
+    box-shadow: var(--shadow);
+}
+
+
+/* ========================================
+   ALERTS
+======================================== */
+
+.alert {
+    border-radius: 10px;
+    border: 1px solid var(--border);
+}
+
+
+/* ========================================
+   FOOTER
+======================================== */
+
+.footer-section {
+    background: var(--navy);
+
+    border-top: none;
+
+    padding: 55px 0 25px;
+
+    color: #D7E1E7;
+}
+
+.footer-section h5,
+.footer-section h6 {
+    color: white;
+}
+
+.footer-section .text-muted {
+    color: #AEBEC8 !important;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 9px;
+}
+
+.footer-links a {
+    color: #AEBEC8;
+    transition: 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+
+/* ========================================
+   DIVIDERS
+======================================== */
+
+hr {
+    border-color: var(--border);
+    opacity: 1;
+}
+
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 991px) {
+
+    .navbar {
+        padding: 8px 0;
+    }
+
+    .nav-link {
+        padding: 10px 0 !important;
+    }
+
+    .hero-section {
+        padding: 75px 0;
+    }
+
+    .hero-title {
+        font-size: 43px;
+    }
+
+    .animal-hero-icon {
+        width: 270px;
+        height: 270px;
+    }
+
+}
+
+
+@media (max-width: 576px) {
+
+    .hero-title {
+        font-size: 34px;
+        letter-spacing: -0.5px;
+    }
+
+    .hero-text {
+        font-size: 16px;
+    }
+
+    .section-padding {
+        padding: 55px 0;
+    }
+
+    .section-title {
+        font-size: 29px;
+    }
+
+    .auth-card,
+    .form-container,
+    .result-card {
+        padding: 24px;
+    }
+
+    .animal-icon {
+        font-size: 55px;
+    }
+
+}
+
+/* ========================================
+   OVERRIDE BOOTSTRAP GREEN
+======================================== */
+
+.bg-success {
+    background-color: #172B3A !important;
+}
+
+.text-success {
+    color: #167D8D !important;
+}
+
+.btn-success {
+    background-color: #167D8D !important;
+    border-color: #167D8D !important;
+}
+
+.btn-success:hover {
+    background-color: #116673 !important;
+    border-color: #116673 !important;
+}
+/* =========================================================
+   AI LIVESTOCK HEALTH
+   PROFESSIONAL LIGHT + DARK THEME
+========================================================= */
+
+
+/* =========================================================
+   ROOT VARIABLES
+========================================================= */
+
+:root {
+
+    /* Primary */
+    --primary: #16879a;
+    --primary-dark: #116b7a;
+    --primary-light: #dff4f7;
+
+    /* Light Theme */
+    --bg: #f5f9fb;
+    --surface: #ffffff;
+    --surface-soft: #eef5f7;
+
+    --text: #142536;
+    --text-secondary: #607487;
+    --text-light: #8a9aaa;
+
+    --border: #dbe5ea;
+
+    --navbar: #ffffff;
+    --footer: #15212d;
+
+    --shadow:
+        0 10px 35px rgba(20, 45, 65, 0.08);
+
+    --shadow-hover:
+        0 18px 45px rgba(20, 45, 65, 0.13);
+
+    --danger: #dc3545;
+    --warning: #e0a100;
+    --success: #198754;
+}
+
+
+/* =========================================================
+   DARK THEME VARIABLES
+========================================================= */
+
+body.dark-mode {
+
+    --bg: #0d151d;
+    --surface: #17222d;
+    --surface-soft: #1d2a36;
+
+    --text: #edf4f7;
+    --text-secondary: #aab9c6;
+    --text-light: #8192a1;
+
+    --border: #30404e;
+
+    --navbar: #151f2a;
+    --footer: #0a1118;
+
+    --primary: #27a7bc;
+    --primary-dark: #16879a;
+    --primary-light: #173943;
+
+    --shadow:
+        0 10px 35px rgba(0, 0, 0, 0.30);
+
+    --shadow-hover:
+        0 18px 45px rgba(0, 0, 0, 0.45);
+}
+
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    margin: 0;
+
+    background-color: var(--bg);
+
+    color: var(--text);
+
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+
+/* =========================================================
+   TYPOGRAPHY
+========================================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+
+    color: var(--text);
+
+    font-weight: 700;
+}
+
+p {
+    color: var(--text-secondary);
+}
+
+.text-muted {
+    color: var(--text-secondary) !important;
+}
+
+.section-title {
+    color: var(--text);
+
+    font-weight: 750;
+
+    letter-spacing: -0.5px;
+}
+
+.section-subtitle {
+
+    color: var(--text-secondary);
+
+    font-size: 1.05rem;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar {
+
+    background: var(--navbar) !important;
+
+    border-bottom: 1px solid var(--border);
+
+    min-height: 72px;
+
+    transition:
+        background-color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.navbar-brand {
+
+    color: var(--primary) !important;
+
+    font-size: 1.35rem;
+
+    letter-spacing: -0.3px;
+}
+
+.navbar .nav-link {
+
+    color: var(--text) !important;
+
+    font-weight: 600;
+
+    margin-left: 8px;
+
+    transition: color 0.2s ease;
+}
+
+.navbar .nav-link:hover {
+
+    color: var(--primary) !important;
+}
+
+
+/* Mobile navbar */
+
+.navbar-toggler {
+
+    border-color: var(--border) !important;
+
+    background: var(--surface);
+}
+
+.navbar-toggler-icon {
+
+    filter: none;
+}
+
+body.dark-mode .navbar-toggler-icon {
+
+    filter: invert(1);
+}
+
+
+/* =========================================================
+   THEME TOGGLE
+========================================================= */
+
+.theme-toggle {
+
+    width: 44px;
+    height: 44px;
+
+    border-radius: 50%;
+
+    border: 1px solid var(--border);
+
+    background: var(--surface);
+
+    color: var(--text);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+}
+
+.theme-toggle:hover {
+
+    transform: translateY(-2px);
+
+    border-color: var(--primary);
+
+    box-shadow: 0 5px 18px rgba(22, 135, 154, 0.18);
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.btn-success {
+
+    background-color: var(--primary) !important;
+
+    border-color: var(--primary) !important;
+
+    color: #ffffff !important;
+
+    font-weight: 650;
+
+    border-radius: 9px;
+
+    transition: all 0.25s ease;
+}
+
+.btn-success:hover {
+
+    background-color: var(--primary-dark) !important;
+
+    border-color: var(--primary-dark) !important;
+
+    transform: translateY(-1px);
+}
+
+.btn-outline-success {
+
+    color: var(--primary) !important;
+
+    border-color: var(--primary) !important;
+
+    background: transparent !important;
+
+    font-weight: 650;
+
+    border-radius: 9px;
+}
+
+.btn-outline-success:hover {
+
+    background: var(--primary) !important;
+
+    color: #ffffff !important;
+}
+
+.btn-outline-dark {
+
+    color: var(--text) !important;
+
+    border-color: var(--border) !important;
+
+    background: var(--surface) !important;
+
+    border-radius: 9px;
+}
+
+.btn-outline-dark:hover {
+
+    background: var(--surface-soft) !important;
+
+    color: var(--text) !important;
+}
+
+
+/* =========================================================
+   BADGES
+========================================================= */
+
+.badge.bg-success {
+
+    background-color: var(--primary) !important;
+}
+
+.badge {
+
+    border-radius: 7px;
+
+    padding: 8px 13px;
+
+    font-weight: 650;
+}
+
+
+/* =========================================================
+   PAGE SECTIONS
+========================================================= */
+
+.section-padding {
+
+    padding-top: 70px;
+
+    padding-bottom: 70px;
+}
+
+
+/* =========================================================
+   HOME / HERO
+========================================================= */
+
+.hero-section {
+
+    min-height: 620px;
+
+    display: flex;
+
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle at 80% 30%,
+            rgba(39, 167, 188, 0.13),
+            transparent 35%
+        ),
+        var(--bg);
+
+    transition: background 0.3s ease;
+}
+
+body.dark-mode .hero-section {
+
+    background:
+        radial-gradient(
+            circle at 80% 30%,
+            rgba(39, 167, 188, 0.16),
+            transparent 38%
+        ),
+        #0d151d;
+}
+
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.hero-title {
+
+    color: var(--text) !important;
+
+    font-size: clamp(2.7rem, 5vw, 4.4rem);
+
+    line-height: 1.08;
+
+    font-weight: 800;
+
+    letter-spacing: -2px;
+}
+
+
+.hero-title span {
+
+    color: var(--primary) !important;
+}
+
+
+.hero-subtitle {
+
+    color: var(--text-secondary) !important;
+
+    font-size: 1.15rem;
+
+    line-height: 1.8;
+
+    max-width: 720px;
+}
+
+
+.hero-badge {
+
+    background: var(--primary) !important;
+
+    color: #ffffff !important;
+}
+
+
+.hero-visual {
+
+    position: relative;
+}
+
+
+.hero-circle {
+
+    width: 360px;
+
+    height: 360px;
+
+    max-width: 100%;
+
+    border-radius: 50%;
+
+    background: var(--surface);
+
+    box-shadow: var(--shadow-hover);
+
+    border: 1px solid var(--border);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin: auto;
+}
+
+
+/* Fix faded home text in dark mode */
+
+body.dark-mode .hero-section h1,
+body.dark-mode .hero-section h2,
+body.dark-mode .hero-section h3 {
+
+    color: var(--text) !important;
+}
+
+body.dark-mode .hero-section p {
+
+    color: var(--text-secondary) !important;
+}
+
+
+/* =========================================================
+   FORM CONTAINER
+========================================================= */
+
+.form-container {
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+
+    padding: 42px;
+
+    box-shadow: var(--shadow);
+
+    transition:
+        background-color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+/* =========================================================
+   FORM ELEMENTS
+========================================================= */
+
+.form-label {
+
+    color: var(--text) !important;
+
+    font-weight: 650;
+
+    margin-bottom: 8px;
+}
+
+.form-control,
+.form-select {
+
+    background-color: var(--surface) !important;
+
+    color: var(--text) !important;
+
+    border: 1px solid var(--border) !important;
+
+    border-radius: 9px;
+
+    min-height: 48px;
+
+    transition: all 0.2s ease;
+}
+
+.form-control::placeholder {
+
+    color: var(--text-light) !important;
+}
+
+.form-control:focus,
+.form-select:focus {
+
+    background-color: var(--surface) !important;
+
+    color: var(--text) !important;
+
+    border-color: var(--primary) !important;
+
+    box-shadow:
+        0 0 0 3px rgba(22, 135, 154, 0.14) !important;
+}
+
+.form-select option {
+
+    background-color: var(--surface);
+
+    color: var(--text);
+}
+
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.animal-card,
+.result-card,
+.tech-card {
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
+
+    box-shadow: var(--shadow);
+
+    color: var(--text);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background-color 0.3s ease;
+}
+
+
+.animal-card {
+
+    padding: 30px 24px;
+}
+
+
+.animal-card:hover,
+.result-card:hover,
+.tech-card:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow: var(--shadow-hover);
+}
+
+
+.animal-icon {
+
+    font-size: 4.2rem;
+
+    margin-bottom: 18px;
+}
+
+
+.tech-card {
+
+    padding: 25px;
+
+    text-align: center;
+
+    font-weight: 650;
+}
+
+
+/* =========================================================
+   ABOUT ICON
+========================================================= */
+
+.about-icon {
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+
+    padding: 55px 20px;
+
+    font-size: 4.5rem;
+
+    box-shadow: var(--shadow);
+}
+
+
+/* =========================================================
+   RESULT PAGE
+========================================================= */
+
+.confidence {
+
+    font-weight: 750;
+}
+
+
+.health-score {
+
+    font-size: 3.8rem;
+
+    font-weight: 800;
+
+    color: var(--primary) !important;
+}
+
+
+.progress {
+
+    background-color: var(--surface-soft) !important;
+
+    border-radius: 50px;
+
+    overflow: hidden;
+}
+
+
+.progress-bar {
+
+    background-color: var(--primary) !important;
+}
+
+
+/* Result lists */
+
+.list-group {
+
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+.list-group-item {
+
+    background: var(--surface) !important;
+
+    color: var(--text) !important;
+
+    border-color: var(--border) !important;
+
+    padding: 13px 16px;
+}
+
+
+/* =========================================================
+   ALERTS
+========================================================= */
+
+.alert {
+
+    border-radius: 12px;
+}
+
+body.dark-mode .alert-success {
+
+    background: #16352e;
+
+    color: #c5f2df;
+
+    border-color: #285c4e;
+}
+
+
+/* =========================================================
+   TABLES / HISTORY
+========================================================= */
+
+.table {
+
+    color: var(--text) !important;
+}
+
+.table thead th {
+
+    background: var(--surface-soft) !important;
+
+    color: var(--text) !important;
+
+    border-color: var(--border) !important;
+}
+
+.table tbody td {
+
+    background: var(--surface) !important;
+
+    color: var(--text) !important;
+
+    border-color: var(--border) !important;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer-section {
+
+    background: var(--footer);
+
+    color: #ffffff;
+
+    padding: 55px 0 25px;
+
+    margin-top: 50px;
+}
+
+.footer-section h5,
+.footer-section h6 {
+
+    color: #ffffff !important;
+}
+
+.footer-section .text-muted {
+
+    color: #aebdca !important;
+}
+
+.footer-links {
+
+    list-style: none;
+
+    padding: 0;
+
+    margin: 0;
+}
+
+.footer-links li {
+
+    margin-bottom: 9px;
+}
+
+.footer-links a {
+
+    color: #b8c7d2;
+
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+
+    color: #45bfd2;
+}
+
+.footer-section hr {
+
+    border-color: rgba(255,255,255,0.15);
+
+    opacity: 1;
+}
+
+
+/* =========================================================
+   DARK MODE - BOOTSTRAP OVERRIDES
+========================================================= */
+
+body.dark-mode .bg-white {
+
+    background-color: var(--surface) !important;
+}
+
+body.dark-mode .text-dark {
+
+    color: var(--text) !important;
+}
+
+body.dark-mode .text-secondary {
+
+    color: var(--text-secondary) !important;
+}
+
+body.dark-mode .border {
+
+    border-color: var(--border) !important;
+}
+
+
+/* =========================================================
+   DARK MODE - COMMON SECTIONS
+========================================================= */
+
+body.dark-mode section {
+
+    color: var(--text);
+}
+
+body.dark-mode .container {
+
+    color: var(--text);
+}
+
+body.dark-mode small {
+
+    color: var(--text-secondary);
+}
+
+
+/* =========================================================
+   LOGIN / REGISTER
+========================================================= */
+
+.auth-card {
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+    box-shadow: var(--shadow);
+
+    padding: 40px;
+}
+
+
+/* =========================================================
+   CONTACT PAGE
+========================================================= */
+
+.contact-card {
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
+
+    padding: 30px;
+
+    box-shadow: var(--shadow);
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+body.dark-mode::-webkit-scrollbar {
+
+    width: 10px;
+}
+
+body.dark-mode::-webkit-scrollbar-track {
+
+    background: #0a1118;
+}
+
+body.dark-mode::-webkit-scrollbar-thumb {
+
+    background: #344553;
+
+    border-radius: 10px;
+}
+
+body.dark-mode::-webkit-scrollbar-thumb:hover {
+
+    background: var(--primary);
+}
+
+
+/* =========================================================
+   SMOOTH THEME TRANSITION
+========================================================= */
+
+body,
+.navbar,
+.form-container,
+.form-control,
+.form-select,
+.animal-card,
+.result-card,
+.tech-card,
+.about-icon,
+.hero-section,
+.hero-circle,
+.list-group-item {
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 991px) {
+
+    .navbar .nav-link {
+
+        margin-left: 0;
+
+        padding: 10px 0;
+    }
+
+    .theme-toggle {
+
+        margin-bottom: 10px;
+    }
+
+    .hero-section {
+
+        min-height: auto;
+
+        padding: 70px 0;
+    }
+
+    .hero-title {
+
+        font-size: 3rem;
+
+        letter-spacing: -1px;
+    }
+
+    .hero-circle {
+
+        width: 290px;
+
+        height: 290px;
+
+        margin-top: 40px;
+    }
+
+    .form-container {
+
+        padding: 25px;
+    }
+}
+
+
+@media (max-width: 576px) {
+
+    .section-padding {
+
+        padding-top: 45px;
+
+        padding-bottom: 45px;
+    }
+
+    .hero-title {
+
+        font-size: 2.35rem;
+    }
+
+    .hero-subtitle {
+
+        font-size: 1rem;
+    }
+
+    .form-container {
+
+        padding: 20px;
+
+        border-radius: 14px;
+    }
+
+    .animal-card {
+
+        padding: 25px 20px;
+    }
+}
+/* =========================================
+   DARK MODE - FORCE HEADINGS VISIBILITY
+========================================= */
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6,
+body.dark-mode .section-title,
+body.dark-mode .card-title,
+body.dark-mode .feature-title {
+    color: #edf4f7 !important;
+}
+
+
+/* Headings inside cards/sections */
+
+body.dark-mode .result-card h1,
+body.dark-mode .result-card h2,
+body.dark-mode .result-card h3,
+body.dark-mode .result-card h4,
+body.dark-mode .result-card h5,
+body.dark-mode .result-card h6,
+body.dark-mode .tech-card h1,
+body.dark-mode .tech-card h2,
+body.dark-mode .tech-card h3,
+body.dark-mode .tech-card h4,
+body.dark-mode .tech-card h5,
+body.dark-mode .tech-card h6 {
+    color: #edf4f7 !important;
+}
+
+
+/* Text used as feature headings */
+
+body.dark-mode .feature-card h1,
+body.dark-mode .feature-card h2,
+body.dark-mode .feature-card h3,
+body.dark-mode .feature-card h4,
+body.dark-mode .feature-card h5,
+body.dark-mode .feature-card h6 {
+    color: #edf4f7 !important;
+}
+
+/* =========================================================
+   FINAL THEME FIX - ALL PAGE SECTIONS
+========================================================= */
+
+/* Default page background */
+main {
+    background-color: var(--bg);
+}
+
+/* All sections should follow current theme */
+section {
+    background-color: transparent;
+}
+
+/* Select Animal / CTA sections */
+.section-padding {
+    background-color: transparent !important;
+}
+
+
+/* =========================================================
+   FIX BOOTSTRAP WHITE BACKGROUNDS
+========================================================= */
+
+.bg-white {
+    background-color: var(--surface) !important;
+}
+
+.bg-light {
+    background-color: var(--bg) !important;
+}
+
+
+/* =========================================================
+   DARK MODE PAGE
+========================================================= */
+
+body.dark-mode,
+body.dark-mode main {
+    background-color: #0d151d !important;
+    color: #edf4f7;
+}
+
+
+/* Every direct section in dark mode */
+body.dark-mode section {
+    background-color: transparent !important;
+}
+
+
+/* =========================================================
+   SELECT ANIMAL CTA / HERO
+========================================================= */
+
+body.dark-mode .section-padding {
+    background-color: #0d151d !important;
+}
+
+
+/* =========================================================
+   REMOVE UNWANTED WHITE/DARK STRIPS
+========================================================= */
+
+body.dark-mode .container-fluid,
+body.dark-mode .row {
+    background-color: transparent;
+}
+
+
+/* =========================================================
+   TEXT
+========================================================= */
+
+body.dark-mode .section-title,
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+    color: #edf4f7 !important;
+}
+
+body.dark-mode p,
+body.dark-mode .text-muted,
+body.dark-mode .section-subtitle {
+    color: #aebdca !important;
+}
+
+
+/* =========================================================
+   ANIMAL CARDS
+========================================================= */
+
+body.dark-mode .animal-card {
+    background-color: #17222d !important;
+    border: 1px solid #30404e !important;
+    color: #edf4f7 !important;
+}
+
+body.dark-mode .animal-card h3 {
+    color: #edf4f7 !important;
+}
+
+body.dark-mode .animal-card p {
+    color: #aebdca !important;
+}
+
+
+/* =========================================================
+   INFORMATION BOX
+========================================================= */
+
+body.dark-mode .alert-success {
+    background-color: #173943 !important;
+    border-color: #285965 !important;
+    color: #d9f3f6 !important;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer-section {
+    background-color: #15212d !important;
+}
+
+body.dark-mode .footer-section {
+    background-color: #080f16 !important;
+}
+
+
+/* =========================================================
+   FOOTER SEPARATOR
+========================================================= */
+
+body.dark-mode .footer-section hr {
+    border-color: #30404e !important;
+}
+
+
+/* =========================================================
+   PREVENT BOOTSTRAP TEXT OVERRIDES
+========================================================= */
+
+body.dark-mode .text-success {
+    color: #27a7bc !important;
+}
+
+body.dark-mode .text-primary {
+    color: #4da3ff !important;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+body.dark-mode .btn-success {
+    background-color: #16879a !important;
+    border-color: #16879a !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .btn-success:hover {
+    background-color: #116b7a !important;
+    border-color: #116b7a !important;
+}
+
+
+/* =========================================================
+   NO EXTRA PAGE BACKGROUND
+========================================================= */
+
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   MOBILE RESPONSIVE DESIGN
+========================================================= */
+
+@media (max-width: 991px) {
+
+    /* ---------- NAVBAR ---------- */
+
+    .navbar {
+        min-height: 65px;
+    }
+
+    .navbar-brand {
+        font-size: 1.15rem;
+    }
+
+    .navbar-collapse {
+        background: var(--navbar);
+        padding: 15px 5px;
+        margin-top: 10px;
+        border-top: 1px solid var(--border);
+    }
+
+    .navbar .nav-link {
+        padding: 10px 5px;
+        margin: 0;
+    }
+
+    .navbar .btn {
+        width: 100%;
+        margin-top: 5px;
+    }
+
+    .theme-toggle {
+        margin: 8px 0;
+    }
+
+
+    /* ---------- HERO ---------- */
+
+    .hero-section {
+        min-height: auto;
+        padding: 70px 0;
+    }
+
+    .hero-title {
+        font-size: 3rem;
+        line-height: 1.1;
+        letter-spacing: -1px;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
+    .hero-circle {
+        width: 290px;
+        height: 290px;
+        margin: 45px auto 0;
+    }
+
+
+    /* ---------- PAGE HEADERS ---------- */
+
+    .section-padding {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+    }
+
+    .section-subtitle {
+        font-size: 1rem;
+    }
+
+
+    /* ---------- FORM ---------- */
+
+    .form-container {
+        padding: 28px 22px;
+        border-radius: 16px;
+    }
+
+    .form-control,
+    .form-select {
+        min-height: 48px;
+        width: 100%;
+    }
+
+
+    /* ---------- CARDS ---------- */
+
+    .animal-card,
+    .result-card,
+    .tech-card {
+        width: 100%;
+    }
+
+    .animal-card {
+        padding: 28px 20px;
+    }
+
+
+    /* ---------- ABOUT ---------- */
+
+    .about-icon {
+        padding: 40px 15px;
+        font-size: 3.5rem;
+    }
+
+
+    /* ---------- FOOTER ---------- */
+
+    .footer-section {
+        padding: 45px 0 25px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE PHONE
+========================================================= */
+
+@media (max-width: 767px) {
+
+    /* ---------- GENERAL ---------- */
+
+    body {
+        overflow-x: hidden;
+    }
+
+    .container {
+        width: 100%;
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+
+    /* ---------- HERO ---------- */
+
+    .hero-section {
+        padding: 50px 0 60px;
+    }
+
+    .hero-title {
+        font-size: 2.35rem;
+        text-align: center;
+    }
+
+    .hero-subtitle {
+        text-align: center;
+        font-size: 0.98rem;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
+    .hero-content .btn {
+        margin: 5px 2px;
+    }
+
+    .hero-circle {
+        width: 240px;
+        height: 240px;
+        margin-top: 35px;
+    }
+
+
+    /* ---------- PAGE TITLE ---------- */
+
+    .section-title {
+        font-size: 1.9rem;
+        line-height: 1.2;
+    }
+
+
+    /* ---------- FORM ---------- */
+
+    .form-container {
+        padding: 22px 16px;
+        border-radius: 14px;
+    }
+
+    .form-container h4 {
+        font-size: 1.25rem;
+    }
+
+    .form-label {
+        font-size: 0.95rem;
+    }
+
+
+    /* ---------- BUTTONS ---------- */
+
+    .btn-lg {
+        width: 100%;
+    }
+
+    .result-card .btn,
+    .result-card a.btn {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+
+    /* ---------- RESULT ---------- */
+
+    .health-score {
+        font-size: 3rem;
+    }
+
+    .result-card {
+        padding: 22px !important;
+    }
+
+
+    /* ---------- ABOUT ---------- */
+
+    .about-icon {
+        font-size: 3rem;
+        padding: 35px 10px;
+    }
+
+
+    /* ---------- FOOTER ---------- */
+
+    .footer-section {
+        text-align: left;
+    }
+
+    .footer-section .row > div {
+        margin-bottom: 15px;
+    }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .container {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+
+    /* ---------- NAVBAR ---------- */
+
+    .navbar-brand {
+        font-size: 1.05rem;
+    }
+
+
+    /* ---------- HERO ---------- */
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.92rem;
+    }
+
+    .hero-circle {
+        width: 210px;
+        height: 210px;
+    }
+
+
+    /* ---------- PAGE ---------- */
+
+    .section-padding {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    .section-title {
+        font-size: 1.7rem;
+    }
+
+
+    /* ---------- FORM ---------- */
+
+    .form-container {
+        padding: 18px 14px;
+    }
+
+
+    /* ---------- BUTTONS ---------- */
+
+    .hero-content .btn {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+
+    /* ---------- ANIMAL CARDS ---------- */
+
+    .animal-icon {
+        font-size: 3.5rem;
+    }
+
+
+    /* ---------- FOOTER ---------- */
+
+    .footer-section {
+        padding-top: 35px;
+    }
+
+    .footer-section h5 {
+        font-size: 1.15rem;
+    }
+}
+
+
+/* =========================================================
+   PREVENT HORIZONTAL OVERFLOW
+========================================================= */
+
+img,
+video,
+canvas,
+iframe {
+    max-width: 100%;
+}
+
+table {
+    max-width: 100%;
+}
+
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}

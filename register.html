@@ -1,0 +1,174 @@
+{% extends "base.html" %}
+
+{% block title %}Register - AI Livestock Health{% endblock %}
+
+{% block content %}
+
+<section class="auth-container">
+
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class="col-md-7 col-lg-5">
+
+                <div class="auth-card">
+
+                    <!-- Heading -->
+                    <div class="text-center mb-4">
+
+                        <div style="font-size: 55px;">
+                            🐄
+                        </div>
+
+                        <h2 class="fw-bold mt-2">
+                            Create Account
+                        </h2>
+
+                        <p class="text-muted">
+                            Register to start monitoring
+                            livestock health.
+                        </p>
+
+                    </div>
+
+
+                    <!-- Register Form -->
+                    <form
+                        action="/register"
+                        method="POST"
+                        onsubmit="return validateForm(this)"
+                    >
+
+                        <!-- Full Name -->
+                        <div class="mb-3">
+
+                            <label
+                                for="name"
+                                class="form-label"
+                            >
+                                Full Name
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="name"
+                                name="name"
+                                placeholder="Enter your full name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- Email -->
+                        <div class="mb-3">
+
+                            <label
+                                for="email"
+                                class="form-label"
+                            >
+                                Email Address
+                            </label>
+
+                            <input
+                                type="email"
+                                class="form-control"
+                                id="email"
+                                name="email"
+                                placeholder="Enter your email"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- Password -->
+                        <div class="mb-3">
+
+                            <label
+                                for="password"
+                                class="form-label"
+                            >
+                                Password
+                            </label>
+
+                            <input
+                                type="password"
+                                class="form-control"
+                                id="password"
+                                name="password"
+                                placeholder="Create a password"
+                                minlength="6"
+                                required
+                            >
+
+                            <small class="text-muted">
+                                Password must contain at least 6 characters.
+                            </small>
+
+                        </div>
+
+
+                        <!-- Confirm Password -->
+                        <div class="mb-4">
+
+                            <label
+                                for="confirm_password"
+                                class="form-label"
+                            >
+                                Confirm Password
+                            </label>
+
+                            <input
+                                type="password"
+                                class="form-control"
+                                id="confirm_password"
+                                name="confirm_password"
+                                placeholder="Enter password again"
+                                minlength="6"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- Register Button -->
+                        <button
+                            type="submit"
+                            class="btn btn-success w-100"
+                        >
+                            Create Account
+                        </button>
+
+                    </form>
+
+
+                    <!-- Login Link -->
+                    <div class="text-center mt-4">
+
+                        <p class="mb-1 text-muted">
+                            Already have an account?
+                        </p>
+
+                        <a
+                            href="/login"
+                            class="text-success fw-bold text-decoration-none"
+                        >
+                            Login Here
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

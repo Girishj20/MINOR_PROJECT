@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+
+{% block title %}
+Login | AI Livestock Health
+{% endblock %}
+
+{% block content %}
+
+<section class="auth-container">
+
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-5 col-md-7">
+
+                <div class="auth-card">
+
+                    <!-- Heading -->
+
+                    <div class="text-center mb-4">
+
+                        <div style="font-size: 48px;">
+                            🐄
+                        </div>
+
+                        <h2 class="fw-bold mt-2">
+                            Welcome Back
+                        </h2>
+
+                        <p class="text-muted">
+                            Login to access your livestock health dashboard.
+                        </p>
+
+                    </div>
+
+
+                    <!-- Login Form -->
+
+                    <form action="#" method="POST">
+
+                        <!-- Email -->
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Email Address
+                            </label>
+
+                            <input
+                                type="email"
+                                class="form-control"
+                                placeholder="Enter your email"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- Password -->
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Password
+                            </label>
+
+                            <input
+                                type="password"
+                                class="form-control"
+                                placeholder="Enter your password"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- Remember / Forgot -->
+
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+
+                            <div class="form-check">
+
+                                <input
+                                    class="form-check-input"
+                                    type="checkbox"
+                                    id="remember"
+                                >
+
+                                <label
+                                    class="form-check-label text-muted"
+                                    for="remember"
+                                >
+                                    Remember me
+                                </label>
+
+                            </div>
+
+                            <a
+                                href="#"
+                                class="text-decoration-none"
+                                style="color: #167D8D;"
+                            >
+                                Forgot Password?
+                            </a>
+
+                        </div>
+
+
+                        <!-- Login Button -->
+
+                        <button
+                            type="submit"
+                            class="btn btn-success w-100 py-2"
+                        >
+                            Login
+                        </button>
+
+                    </form>
+
+
+                    <!-- Register -->
+
+                    <div class="text-center mt-4">
+
+                        <p class="text-muted mb-0">
+
+                            Don't have an account?
+
+                            <a
+                                href="/register"
+                                class="fw-semibold"
+                                style="color: #167D8D;"
+                            >
+                                Create Account
+                            </a>
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

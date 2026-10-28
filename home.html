@@ -1,0 +1,480 @@
+{% extends "base.html" %}
+
+{% block title %}Home - AI Livestock Health{% endblock %}
+
+{% block content %}
+
+<!-- =========================================
+     HERO SECTION
+========================================= -->
+
+<section class="hero-section">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <!-- Left Content -->
+
+            <div class="col-lg-7">
+
+                <span class="badge bg-success mb-3">
+                    AI-Powered Animal Healthcare
+                </span>
+
+                <h1 class="hero-title">
+                    Smart Livestock
+                    <span class="text-success">
+                        Health Monitoring
+                    </span>
+                </h1>
+
+                <p class="hero-text mt-4">
+                    An intelligent decision support system that
+                    analyzes livestock health parameters and helps
+                    identify possible diseases at an early stage.
+                </p>
+
+                <div class="mt-4">
+
+                    <a href="/select-animal"
+                       class="btn btn-success me-2">
+                        Check Animal Health
+                    </a>
+
+                    <a href="/about"
+                       class="btn btn-outline-success">
+                        Learn More
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Right Content -->
+
+            <div class="col-lg-5 text-center mt-5 mt-lg-0">
+
+                <div class="animal-hero-icon">
+
+                    <div style="font-size: 130px;">
+                        🐄
+                    </div>
+
+                    <div class="mt-3">
+
+                        <span class="badge bg-light text-success
+                                     border p-2">
+                            AI Health Analysis
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     ANIMAL SELECTION SECTION
+========================================= -->
+
+<section class="section-padding">
+
+    <div class="container">
+
+        <div class="text-center">
+
+            <h2 class="section-title">
+                Select Your Animal
+            </h2>
+
+            <p class="section-subtitle">
+                Choose an animal to begin health assessment
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <!-- COW -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="animal-card text-center">
+
+                    <div class="animal-icon">
+                        🐄
+                    </div>
+
+                    <h4>
+                        Cow
+                    </h4>
+
+                    <p class="text-muted">
+                        Analyze cow health parameters
+                        and predict possible diseases.
+                    </p>
+
+                    <a href="/predict/cow"
+                       class="btn btn-outline-success btn-sm">
+                        Check Health
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- BUFFALO -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="animal-card text-center">
+
+                    <div class="animal-icon">
+                        🐃
+                    </div>
+
+                    <h4>
+                        Buffalo
+                    </h4>
+
+                    <p class="text-muted">
+                        Monitor buffalo health and
+                        identify possible diseases.
+                    </p>
+
+                    <a href="/predict/buffalo"
+                       class="btn btn-outline-success btn-sm">
+                        Check Health
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- GOAT -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="animal-card text-center">
+
+                    <div class="animal-icon">
+                        🐐
+                    </div>
+
+                    <h4>
+                        Goat
+                    </h4>
+
+                    <p class="text-muted">
+                        Assess goat health using
+                        important health parameters.
+                    </p>
+
+                    <a href="/predict/goat"
+                       class="btn btn-outline-success btn-sm">
+                        Check Health
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- SHEEP -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="animal-card text-center">
+
+                    <div class="animal-icon">
+                        🐑
+                    </div>
+
+                    <h4>
+                        Sheep
+                    </h4>
+
+                    <p class="text-muted">
+                        Analyze sheep health and
+                        detect possible diseases.
+                    </p>
+
+                    <a href="/predict/sheep"
+                       class="btn btn-outline-success btn-sm">
+                        Check Health
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     HOW IT WORKS
+========================================= -->
+
+<section class="section-padding bg-white">
+
+    <div class="container">
+
+        <div class="text-center">
+
+            <h2 class="section-title">
+                How It Works
+            </h2>
+
+            <p class="section-subtitle">
+                Simple steps to assess livestock health
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-4">
+
+                <div class="animal-card text-center">
+
+                    <div class="animal-icon">
+                        📋
+                    </div>
+
+                    <h4>
+                        1. Enter Health Data
+                    </h4>
+
+                    <p class="text-muted">
+                        Enter the animal's health,
+                        physical and environmental parameters.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="animal-card text-center">
+
+                    <div class="animal-icon">
+                        🤖
+                    </div>
+
+                    <h4>
+                        2. AI Analysis
+                    </h4>
+
+                    <p class="text-muted">
+                        The trained machine learning model
+                        analyzes the provided parameters.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="animal-card text-center">
+
+                    <div class="animal-icon">
+                        📊
+                    </div>
+
+                    <h4>
+                        3. Health Report
+                    </h4>
+
+                    <p class="text-muted">
+                        Get disease prediction, confidence,
+                        severity, recommendations and prevention.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     FEATURES
+========================================= -->
+
+<section class="section-padding">
+
+    <div class="container">
+
+        <div class="text-center">
+
+            <h2 class="section-title">
+                System Features
+            </h2>
+
+            <p class="section-subtitle">
+                Everything you need for livestock health monitoring
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="animal-card">
+
+                    <h5>🤖 AI Disease Prediction</h5>
+
+                    <p class="text-muted mb-0">
+                        Machine learning models predict
+                        possible livestock diseases.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="animal-card">
+
+                    <h5>📈 Confidence Score</h5>
+
+                    <p class="text-muted mb-0">
+                        View the model's prediction
+                        confidence percentage.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="animal-card">
+
+                    <h5>🩺 Severity Assessment</h5>
+
+                    <p class="text-muted mb-0">
+                        Understand whether the condition
+                        is Low, Medium or High severity.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="animal-card">
+
+                    <h5>💡 Recommendations</h5>
+
+                    <p class="text-muted mb-0">
+                        Get practical recommendations
+                        based on the predicted condition.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="animal-card">
+
+                    <h5>🛡️ Disease Prevention</h5>
+
+                    <p class="text-muted mb-0">
+                        Learn how the predicted disease
+                        can be prevented.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="animal-card">
+
+                    <h5>📄 PDF Health Report</h5>
+
+                    <p class="text-muted mb-0">
+                        Generate a downloadable health
+                        assessment report.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     CALL TO ACTION
+========================================= -->
+
+<section class="section-padding bg-success text-white">
+
+    <div class="container text-center">
+
+        <h2 class="fw-bold">
+            Ready to Check Animal Health?
+        </h2>
+
+        <p class="mt-3">
+            Select an animal and start the health assessment.
+        </p>
+
+        <a href="/select-animal"
+           class="btn btn-light text-success fw-bold mt-3">
+            Start Health Assessment
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}

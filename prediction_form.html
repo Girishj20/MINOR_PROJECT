@@ -1,0 +1,1268 @@
+```html
+{% extends "base.html" %}
+
+{% block title %}Health Assessment - AI Livestock Health{% endblock %}
+
+{% block content %}
+
+<section class="section-padding">
+
+    <div class="container">
+
+        <!-- PAGE HEADER -->
+
+        <div class="text-center mb-5">
+
+            <span class="badge bg-success mb-3">
+                AI Health Assessment
+            </span>
+
+            <h1 class="section-title">
+                Animal Health Parameters
+            </h1>
+
+            <p class="section-subtitle">
+                Enter the available health information of the animal
+                for AI-based disease prediction.
+            </p>
+
+        </div>
+
+
+        <!-- FORM -->
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-10">
+
+                <div class="form-container">
+
+                    <form
+                        id="predictionForm"
+                        onsubmit="return submitPrediction(event)"
+                    >
+
+                        <!-- ANIMAL TYPE -->
+
+                        <input
+                            type="hidden"
+                            name="animal"
+                            value="{{ animal }}"
+                        >
+
+
+                        <!-- BASIC INFORMATION -->
+
+                        <h4 class="mb-4">
+
+                            {% if animal|lower == "cow" %}
+                                🐄 Basic Information
+                            {% elif animal|lower == "buffalo" %}
+                                🐃 Basic Information
+                            {% elif animal|lower == "goat" %}
+                                🐐 Basic Information
+                            {% elif animal|lower == "sheep" %}
+                                🐑 Basic Information
+                            {% else %}
+                                🐄 Basic Information
+                            {% endif %}
+
+                        </h4>
+
+
+                        <div class="row g-3">
+
+                            <!-- BREED -->
+
+                            <div class="col-md-6">
+
+                                <label
+                                    for="breed"
+                                    class="form-label"
+                                >
+                                    Breed
+                                </label>
+
+                                <select
+                                    id="breed"
+                                    name="breed"
+                                    class="form-select"
+                                    required
+                                >
+
+                                    <option value="">
+                                        Select Breed
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <!-- AGE -->
+
+                            <div class="col-md-6">
+
+                                <label
+                                    for="age"
+                                    class="form-label"
+                                >
+                                    Age (Months)
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="age"
+                                    name="age_months"
+                                    class="form-control"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <!-- WEIGHT -->
+
+                            <div class="col-md-6">
+
+                                <label
+                                    for="weight"
+                                    class="form-label"
+                                >
+                                    Weight (kg)
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="weight"
+                                    name="weight_kg"
+                                    class="form-control"
+                                    step="0.1"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <!-- BODY CONDITION -->
+
+                            <div class="col-md-6">
+
+                                <label
+                                    for="body_condition"
+                                    class="form-label"
+                                >
+                                    Body Condition Score
+                                </label>
+
+                                <select
+                                    id="body_condition"
+                                    name="body_condition_score"
+                                    class="form-select"
+                                    required
+                                >
+
+                                    <option value="">
+                                        Select Score
+                                    </option>
+
+                                    <option value="2">
+                                        2
+                                    </option>
+
+                                    <option value="3">
+                                        3
+                                    </option>
+
+                                    <option value="4">
+                                        4
+                                    </option>
+
+                                    <option value="5">
+                                        5
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+
+                        <hr class="my-5">
+
+
+                        <!-- HEALTH PARAMETERS -->
+
+                        <h4 class="mb-4">
+                            ❤️ Health Parameters
+                        </h4>
+
+
+                        <div class="row g-3">
+
+                            <!-- TEMPERATURE -->
+
+                            <div class="col-md-4">
+
+                                <label
+                                    for="temperature"
+                                    class="form-label"
+                                >
+                                    Body Temperature (°C)
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="temperature"
+                                    name="body_temperature"
+                                    class="form-control"
+                                    step="0.1"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <!-- HEART RATE -->
+
+                            <div class="col-md-4">
+
+                                <label
+                                    for="heart_rate"
+                                    class="form-label"
+                                >
+                                    Heart Rate (bpm)
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="heart_rate"
+                                    name="heart_rate"
+                                    class="form-control"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <!-- RESPIRATORY RATE -->
+
+                            <div class="col-md-4">
+
+                                <label
+                                    for="respiratory_rate"
+                                    class="form-label"
+                                >
+                                    Respiratory Rate
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="respiratory_rate"
+                                    name="respiratory_rate"
+                                    class="form-control"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <!-- RUMINATION -->
+
+                            <div class="col-md-6">
+
+                                <label
+                                    for="rumination"
+                                    class="form-label"
+                                >
+                                    Rumination Time (hrs)
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="rumination"
+                                    name="rumination_time"
+                                    class="form-control"
+                                    step="0.1"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <!-- RESTING -->
+
+                            <div class="col-md-6">
+
+                                <label
+                                    for="resting"
+                                    class="form-label"
+                                >
+                                    Resting Hours
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="resting"
+                                    name="resting_hours"
+                                    class="form-control"
+                                    step="0.1"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- =====================================================
+                             COW MODEL PARAMETERS
+                        ===================================================== -->
+
+                        {% if animal|lower == "cow" %}
+
+                        <hr class="my-5">
+
+
+                        <h4 class="mb-4">
+                            🐄 Cow Health & Activity Parameters
+                        </h4>
+
+
+                        <div class="row g-3">
+
+                            <!-- FEED QUANTITY -->
+
+                            <div class="col-md-4">
+
+                                <label
+                                    for="feed_quantity"
+                                    class="form-label"
+                                >
+                                    Feed Quantity (kg)
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="feed_quantity"
+                                    name="feed_quantity_kg"
+                                    class="form-control"
+                                    step="0.1"
+                                    min="0"
+                                    placeholder="Example: 4.5"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <!-- WATER INTAKE -->
+
+                            <div class="col-md-4">
+
+                                <label
+                                    for="water_intake"
+                                    class="form-label"
+                                >
+                                    Water Intake (L)
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="water_intake"
+                                    name="water_intake_l"
+                                    class="form-control"
+                                    step="0.1"
+                                    min="0"
+                                    placeholder="Example: 12"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <!-- WALKING DISTANCE -->
+
+                            <div class="col-md-4">
+
+                                <label
+                                    for="walking_distance"
+                                    class="form-label"
+                                >
+                                    Walking Distance (km)
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="walking_distance"
+                                    name="walking_distance_km"
+                                    class="form-control"
+                                    step="0.1"
+                                    min="0"
+                                    placeholder="Example: 4.0"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <!-- GRAZING DURATION -->
+
+                            <div class="col-md-6">
+
+                                <label
+                                    for="grazing_duration"
+                                    class="form-label"
+                                >
+                                    Grazing Duration (hrs)
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="grazing_duration"
+                                    name="grazing_duration_hrs"
+                                    class="form-control"
+                                    step="0.1"
+                                    min="0"
+                                    max="24"
+                                    placeholder="Example: 6.0"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <!-- MILK YIELD -->
+
+                            <div class="col-md-6">
+
+                                <label
+                                    for="milk_yield"
+                                    class="form-label"
+                                >
+                                    Milk Yield (L)
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="milk_yield"
+                                    name="milk_yield_l"
+                                    class="form-control"
+                                    step="0.1"
+                                    min="0"
+                                    placeholder="Example: 4.5"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+                        {% endif %}
+
+
+                        <hr class="my-5">
+
+
+                        <!-- ENVIRONMENT -->
+
+                        <h4 class="mb-4">
+                            🌤️ Environmental Information
+                        </h4>
+
+
+                        <div class="row g-3">
+
+                            <!-- AMBIENT TEMPERATURE -->
+
+                            <div class="col-md-6">
+
+                                <label
+                                    for="ambient_temperature"
+                                    class="form-label"
+                                >
+                                    Ambient Temperature (°C)
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="ambient_temperature"
+                                    name="ambient_temperature"
+                                    class="form-control"
+                                    step="0.1"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <!-- HUMIDITY -->
+
+                            <div class="col-md-6">
+
+                                <label
+                                    for="humidity"
+                                    class="form-label"
+                                >
+                                    Humidity (%)
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="humidity"
+                                    name="humidity"
+                                    class="form-control"
+                                    min="0"
+                                    max="100"
+                                    step="0.1"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <hr class="my-5">
+
+
+                        <!-- VACCINATION -->
+
+                        <h4 class="mb-4">
+                            💉 Vaccination Status
+                        </h4>
+
+
+                        <div class="row g-3">
+
+                            <!-- FMD -->
+
+                            <div class="col-md-6">
+
+                                <label
+                                    for="fmd_vaccine"
+                                    class="form-label"
+                                >
+                                    FMD Vaccine
+                                </label>
+
+                                <select
+                                    id="fmd_vaccine"
+                                    name="fmd_vaccine"
+                                    class="form-select"
+                                    required
+                                >
+
+                                    <option value="">
+                                        Select Status
+                                    </option>
+
+                                    <option value="1">
+                                        Vaccinated
+                                    </option>
+
+                                    <option value="0">
+                                        Not Vaccinated
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <!-- RABIES -->
+
+                            <div class="col-md-6">
+
+                                <label
+                                    for="rabies_vaccine"
+                                    class="form-label"
+                                >
+                                    Rabies Vaccine
+                                </label>
+
+                                <select
+                                    id="rabies_vaccine"
+                                    name="rabies_vaccine"
+                                    class="form-select"
+                                    required
+                                >
+
+                                    <option value="">
+                                        Select Status
+                                    </option>
+
+                                    <option value="1">
+                                        Vaccinated
+                                    </option>
+
+                                    <option value="0">
+                                        Not Vaccinated
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- SUBMIT -->
+
+                        <div class="text-center mt-5">
+
+                            <button
+                                type="submit"
+                                class="btn btn-success btn-lg px-5"
+                            >
+                                🔍 Analyze Animal Health
+                            </button>
+
+                        </div>
+
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ANIMAL-SPECIFIC DATA
+===================================================== -->
+
+<script>
+
+const animal = "{{ animal }}".toLowerCase();
+
+
+const animalData = {
+
+    cow: {
+
+        breeds: [
+            "Tharparkar",
+            "Holstein-Friesian",
+            "Jersey",
+            "Sahiwal",
+            "Gir"
+        ],
+
+        age: {
+            min: 1,
+            max: 200,
+            placeholder: "Example: 60"
+        },
+
+        weight: {
+            min: 100,
+            max: 1000,
+            placeholder: "Example: 450"
+        },
+
+        temperature: {
+            min: 35,
+            max: 42,
+            placeholder: "Example: 38.5"
+        },
+
+        heartRate: {
+            min: 30,
+            max: 120,
+            placeholder: "Example: 70"
+        },
+
+        respiratoryRate: {
+            min: 5,
+            max: 60,
+            placeholder: "Example: 25"
+        },
+
+        rumination: {
+            min: 0,
+            max: 24,
+            placeholder: "Example: 10"
+        },
+
+        resting: {
+            min: 0,
+            max: 24,
+            placeholder: "Example: 10"
+        }
+
+    },
+
+
+    buffalo: {
+
+        breeds: [
+            "Bhadawari",
+            "Jaffarabadi",
+            "Mehsana",
+            "Murrah",
+            "Nili-Ravi",
+            "Surti"
+        ],
+
+        age: {
+            min: 24,
+            max: 143,
+            placeholder: "Example: 60"
+        },
+
+        weight: {
+            min: 300,
+            max: 750,
+            placeholder: "300 - 750 kg"
+        },
+
+        temperature: {
+            min: 37.5,
+            max: 39.5,
+            placeholder: "37.5 - 39.5"
+        },
+
+        heartRate: {
+            min: 40,
+            max: 70,
+            placeholder: "40 - 70"
+        },
+
+        respiratoryRate: {
+            min: 10,
+            max: 28,
+            placeholder: "10 - 28"
+        },
+
+        rumination: {
+            min: 4,
+            max: 14,
+            placeholder: "4 - 14 hrs"
+        },
+
+        resting: {
+            min: 5,
+            max: 18,
+            placeholder: "5 - 18 hrs"
+        }
+
+    },
+
+
+    goat: {
+
+        breeds: [
+            "Barbari",
+            "Beetal",
+            "Black Bengal",
+            "Boer",
+            "Jamunapari",
+            "Osmanabadi",
+            "Sirohi"
+        ],
+
+        age: {
+            min: 24,
+            max: 143,
+            placeholder: "Example: 60"
+        },
+
+        weight: {
+            min: 90,
+            max: 90,
+            placeholder: "90 kg"
+        },
+
+        temperature: {
+            min: 38.5,
+            max: 40.5,
+            placeholder: "38.5 - 40.5"
+        },
+
+        heartRate: {
+            min: 70,
+            max: 110,
+            placeholder: "70 - 110"
+        },
+
+        respiratoryRate: {
+            min: 12,
+            max: 35,
+            placeholder: "12 - 35"
+        },
+
+        rumination: {
+            min: 4,
+            max: 10,
+            placeholder: "4 - 10 hrs"
+        },
+
+        resting: {
+            min: 5,
+            max: 14,
+            placeholder: "5 - 14 hrs"
+        }
+
+    },
+
+
+    sheep: {
+
+        breeds: [
+            "Awassi",
+            "Deccani",
+            "Dorper",
+            "Garole",
+            "Merino",
+            "Rambouillet",
+            "Suffolk",
+            "Texel"
+        ],
+
+        age: {
+            min: 24,
+            max: 143,
+            placeholder: "Example: 60"
+        },
+
+        weight: {
+            min: 120,
+            max: 120,
+            placeholder: "120 kg"
+        },
+
+        temperature: {
+            min: 38.3,
+            max: 40,
+            placeholder: "38.3 - 40"
+        },
+
+        heartRate: {
+            min: 60,
+            max: 120,
+            placeholder: "60 - 120"
+        },
+
+        respiratoryRate: {
+            min: 12,
+            max: 34,
+            placeholder: "12 - 34"
+        },
+
+        rumination: {
+            min: 4,
+            max: 10,
+            placeholder: "4 - 10 hrs"
+        },
+
+        resting: {
+            min: 5,
+            max: 14,
+            placeholder: "5 - 14 hrs"
+        }
+
+    }
+
+};
+
+
+const data =
+    animalData[animal] ||
+    animalData.cow;
+
+
+// =====================================================
+// BREEDS
+// =====================================================
+
+const breedSelect =
+    document.getElementById("breed");
+
+
+breedSelect.innerHTML =
+    '<option value="">Select Breed</option>';
+
+
+data.breeds.forEach(function(breed) {
+
+    const option =
+        document.createElement("option");
+
+    option.value = breed;
+
+    option.textContent = breed;
+
+    breedSelect.appendChild(option);
+
+});
+
+
+// =====================================================
+// AGE
+// =====================================================
+
+const age =
+    document.getElementById("age");
+
+
+age.min =
+    data.age.min;
+
+age.max =
+    data.age.max;
+
+age.placeholder =
+    data.age.placeholder;
+
+
+// =====================================================
+// WEIGHT
+// =====================================================
+
+const weight =
+    document.getElementById("weight");
+
+
+weight.min =
+    data.weight.min;
+
+weight.max =
+    data.weight.max;
+
+weight.placeholder =
+    data.weight.placeholder;
+
+
+// =====================================================
+// TEMPERATURE
+// =====================================================
+
+const temperature =
+    document.getElementById("temperature");
+
+
+temperature.min =
+    data.temperature.min;
+
+temperature.max =
+    data.temperature.max;
+
+temperature.placeholder =
+    data.temperature.placeholder;
+
+
+// =====================================================
+// HEART RATE
+// =====================================================
+
+const heartRate =
+    document.getElementById("heart_rate");
+
+
+heartRate.min =
+    data.heartRate.min;
+
+heartRate.max =
+    data.heartRate.max;
+
+heartRate.placeholder =
+    data.heartRate.placeholder;
+
+
+// =====================================================
+// RESPIRATORY RATE
+// =====================================================
+
+const respiratoryRate =
+    document.getElementById("respiratory_rate");
+
+
+respiratoryRate.min =
+    data.respiratoryRate.min;
+
+respiratoryRate.max =
+    data.respiratoryRate.max;
+
+respiratoryRate.placeholder =
+    data.respiratoryRate.placeholder;
+
+
+// =====================================================
+// RUMINATION
+// =====================================================
+
+const rumination =
+    document.getElementById("rumination");
+
+
+rumination.min =
+    data.rumination.min;
+
+rumination.max =
+    data.rumination.max;
+
+rumination.placeholder =
+    data.rumination.placeholder;
+
+
+// =====================================================
+// RESTING HOURS
+// =====================================================
+
+const resting =
+    document.getElementById("resting");
+
+
+resting.min =
+    data.resting.min;
+
+resting.max =
+    data.resting.max;
+
+resting.placeholder =
+    data.resting.placeholder;
+
+
+// =====================================================
+// FIXED VALUES FOR GOAT / SHEEP
+// =====================================================
+
+if (animal === "goat") {
+
+    weight.value = 90;
+
+    weight.readOnly = true;
+
+}
+
+
+if (animal === "sheep") {
+
+    weight.value = 120;
+
+    weight.readOnly = true;
+
+}
+
+
+// =====================================================
+// COW ML PREDICTION
+// =====================================================
+
+async function submitPrediction(event) {
+
+    event.preventDefault();
+
+    // Cow, Buffalo and Sheep models are available.
+    // Goat remains future scope.
+    if (!["cow", "buffalo", "sheep"].includes(animal)) {
+
+        alert(
+            "Prediction model for " +
+            animal.charAt(0).toUpperCase() +
+            animal.slice(1) +
+            " is not available yet."
+        );
+
+        return false;
+    }
+
+    const form =
+        document.getElementById("predictionForm");
+
+    const inputData = {
+
+        animal_type:
+            animal.charAt(0).toUpperCase() +
+            animal.slice(1),
+
+        breed:
+            document.getElementById("breed").value,
+
+        age_months:
+            parseFloat(
+                document.getElementById("age").value
+            ),
+
+        weight_kg:
+            parseFloat(
+                document.getElementById("weight").value
+            ),
+
+        feed_quantity_kg:
+            parseFloat(
+                document.getElementById("feed_quantity")?.value || 0
+            ),
+
+        water_intake_l:
+            parseFloat(
+                document.getElementById("water_intake")?.value || 0
+            ),
+
+        walking_distance_km:
+            parseFloat(
+                document.getElementById("walking_distance")?.value || 0
+            ),
+
+        grazing_duration_hrs:
+            parseFloat(
+                document.getElementById("grazing_duration")?.value || 0
+            ),
+
+        rumination_time_hrs:
+            parseFloat(
+                document.getElementById("rumination").value
+            ),
+
+        resting_hours:
+            parseFloat(
+                document.getElementById("resting").value
+            ),
+
+        body_temperature_c:
+            parseFloat(
+                document.getElementById("temperature").value
+            ),
+
+        heart_rate_bpm:
+            parseFloat(
+                document.getElementById("heart_rate").value
+            ),
+
+        respiratory_rate:
+            parseFloat(
+                document.getElementById("respiratory_rate").value
+            ),
+
+        milk_yield_l:
+            parseFloat(
+                document.getElementById("milk_yield")?.value || 0
+            ),
+
+        body_condition_score:
+            parseFloat(
+                document.getElementById("body_condition").value
+            )
+    };
+
+    for (const [key, value] of Object.entries(inputData)) {
+
+        if (
+            value === undefined ||
+            value === null ||
+            value === "" ||
+            Number.isNaN(value)
+        ) {
+
+            alert(
+                "Please enter all required " +
+                animal.charAt(0).toUpperCase() +
+                animal.slice(1) +
+                " health parameters."
+            );
+
+            return false;
+        }
+    }
+
+    const apiUrl =
+        "/api/predict/" + animal;
+
+    const button =
+        form.querySelector(
+            "button[type='submit']"
+        );
+
+    const originalText =
+        button.innerHTML;
+
+    button.disabled = true;
+
+    button.innerHTML =
+        "⏳ Analyzing...";
+
+    try {
+
+        const response =
+            await fetch(
+                apiUrl,
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body:
+                        JSON.stringify(inputData)
+                }
+            );
+
+        const result =
+            await response.json();
+
+        if (
+            !response.ok ||
+            !result.success
+        ) {
+
+            throw new Error(
+                result.error ||
+                "Prediction failed."
+            );
+        }
+
+        sessionStorage.setItem(
+            animal + "Prediction",
+            JSON.stringify(
+                result.prediction
+            )
+        );
+
+        sessionStorage.setItem(
+            animal + "InputData",
+            JSON.stringify(
+                inputData
+            )
+        );
+
+        window.location.href =
+            "/result";
+
+    }
+    catch (error) {
+
+        console.error(
+            "Prediction Error:",
+            error
+        );
+
+        alert(
+            "Prediction failed: " +
+            error.message
+        );
+
+        button.disabled =
+            false;
+
+        button.innerHTML =
+            originalText;
+    }
+
+    return false;
+}
+
+</script>
+
+
+{% endblock %}
+```
